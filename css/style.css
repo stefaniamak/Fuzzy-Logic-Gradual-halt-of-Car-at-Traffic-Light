@@ -1,0 +1,16 @@
+.car {
+    width: 100px
+
+}
+
+.road {
+    width: fixed;
+    height: 200px;
+    border: 20px solid #c3c3c3;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+}
