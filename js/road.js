@@ -1,10 +1,10 @@
 
-function setup() {
+function setupRoad() {
     createCanvas(WIDTH, HEIGHT);
     //document.write("hi from road file");
 }
 
-function draw() {
+function drawRoad() {
     RoadOutline();
     var linesNumber;
     var xLine = WIDTH;
