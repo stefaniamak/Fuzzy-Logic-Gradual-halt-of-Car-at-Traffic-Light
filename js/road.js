@@ -1,7 +1,6 @@
 
 function setupRoad() {
     createCanvas(WIDTH, HEIGHT);
-    //document.write("hi from road file");
 }
 
 function drawRoad() {
