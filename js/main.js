@@ -6,7 +6,7 @@ const trafficLight = new TrafficLight(50, 50);
 let moving = false;
 
 function setup() {
-	  createCanvas(WIDTH, HEIGHT);
+    createCanvas(WIDTH, HEIGHT);
     car.stop();
 }
 
