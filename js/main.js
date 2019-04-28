@@ -1,22 +1,26 @@
+const HEIGHT = window.innerHeight;
+const WIDTH = window.innerWidth;
 
+const car = new Car(0, HEIGHT/2);
+const trafficLight = new TrafficLight(50, 50);
+let moving = false;
 
 function setup() {
-    
-
-    car = new Car(0,HEIGHT/2)
-    //document.write("Click car to start");
+	  createCanvas(WIDTH, HEIGHT);
+    car.stop();
 }
 
 function draw() {
-    setupRoad();
+    clear();
     drawRoad();
     car.moveForward();
     car.show();
-    notLoop();
+    trafficLight.update();
+    trafficLight.show();
 }
 
 function mousePressed() {
-    redraw();
+    moving() ? car.stop() : car.start();
+    moving ^= 1;
 }
-
 

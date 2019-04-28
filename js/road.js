@@ -1,22 +1,18 @@
-
-function setupRoad() {
-    createCanvas(WIDTH, HEIGHT);
-}
-
 function drawRoad() {
     RoadOutline();
-    var linesNumber;
-    var xLine = WIDTH;
-    for (linesNumber = 0; linesNumber < 7; linesNumber++) {
+    let xLine = WIDTH;
+    for (let linesNumber = 0; linesNumber < 7; linesNumber++) {
         RoadLines(xLine,HEIGHT);
-        xLine = xLine + WIDTH*2.5
-    }     
+        xLine = xLine + WIDTH*2.5;
+    }
 }
 
-function RoadOutline(){  
-    rect(0, HEIGHT/3, WIDTH-(WIDTH*10/100), HEIGHT/3);
+function RoadOutline() {
+    fill(0xffffff);
+    rect(0, HEIGHT/3, WIDTH*0.9, HEIGHT/3);
 }
 
-function RoadLines(x,y) {
+function RoadLines(x, y) {
+    fill(0xffffff);
     rect(x*5/100, HEIGHT/2, WIDTH*4/100, HEIGHT/50);
 }
