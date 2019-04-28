@@ -20,7 +20,7 @@ function draw() {
 }
 
 function mousePressed() {
-    moving() ? car.stop() : car.start();
+    moving ? car.stop() : car.start();
     moving ^= 1;
 }
 
