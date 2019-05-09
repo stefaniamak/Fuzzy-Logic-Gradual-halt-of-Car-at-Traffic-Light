@@ -71,3 +71,11 @@ Inputs (non-fuzzy) -> Rules (fuzzy) -> Results/Conbined rules (defuzzidied) -> R
 
 */
 
+function fuzzyLogic(tlColor, tlDistance) {
+    // tlColor = Green / Orange / Red
+    // tlDistance = 
+
+
+}
+
+

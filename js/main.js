@@ -2,7 +2,7 @@ const HEIGHT = window.innerHeight;
 const WIDTH = window.innerWidth;
 
 const car = new Car(0, HEIGHT/2);
-const trafficLight = new TrafficLight(50, 50);
+const trafficLight = new TrafficLight(WIDTH*70/100, HEIGHT*0.10);
 let moving = false;
 
 function setup() {
