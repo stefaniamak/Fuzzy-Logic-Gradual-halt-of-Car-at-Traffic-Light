@@ -15,6 +15,7 @@ class TrafficLight {
         this.y = y;
         this.tick = 1;
         this.stage = 0;
+        this.color = "Grey";
     }
 
     show() {
@@ -39,6 +40,14 @@ class TrafficLight {
         //Green Light
         fill(this.stage == 0 ? GREEN : GREY);
         circle(HEIGHT*0.05, HEIGHT*16.5/100, HEIGHT*2.7/100);
+
+        if (this.stage == 2) {
+            this.color = "Red";
+        } else if (this.stage == 1) {
+            this.color = "Orange";
+        }else {
+            this.color = "Green";
+        }
     }
 
     update() {

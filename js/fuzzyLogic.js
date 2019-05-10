@@ -71,10 +71,42 @@ Inputs (non-fuzzy) -> Rules (fuzzy) -> Results/Conbined rules (defuzzidied) -> R
 
 */
 
-function fuzzyLogic(tlColor, tlDistance) {
-    // tlColor = Green / Orange / Red
-    // tlDistance = 
+//Input
+//const tlDistance = "";
+// tlColor = Green / Orange / Red
+// tlDistance = far / middle / close      tlPlacement - carPlacement
 
+//Output
+//const carSpeedChoice = "";
+
+
+function fuzzyLogic(tlColor, tlPlacement, carPlacement) {
+
+    if (carPlacement < tlPlacement/3) {
+        tlDistance = "far";
+    }else if (carPlacement > tlPlacement*2/3) {
+        tlDistance = "close";
+    }else {
+        tlDistance = "middle";
+    }
+
+
+    if (tlColor == "Green" || tlDistance == "far") {
+        carSpeedChoice = "Normal Speed";
+    }else if (tlColor == "Red" || tlDistance == "middle") {
+        carSpeedChoice = "Slow Down";
+    }else {
+        carSpeedChoice = "Speed Up";
+    }
+
+
+    if (carSpeedChoice == "Normal Speed") {
+        car.start()
+    }else if (carSpeedChoice == "Slow Down") {
+        car.stop()
+    }else {
+        car.fast()
+    }
 
 }
 

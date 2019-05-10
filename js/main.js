@@ -1,9 +1,14 @@
 const HEIGHT = window.innerHeight;
 const WIDTH = window.innerWidth;
 
-const car = new Car(0, HEIGHT/2);
-const trafficLight = new TrafficLight(WIDTH*70/100, HEIGHT*0.10);
+const carSpeed = 3;
+const car = new Car(0, HEIGHT/2, carSpeed);
 let moving = false;
+
+const tlPlacement = WIDTH*70/100;
+tlColor = "Green";
+const trafficLight = new TrafficLight(tlPlacement, HEIGHT*0.10);
+
 
 function setup() {
     createCanvas(WIDTH, HEIGHT);
@@ -13,6 +18,7 @@ function setup() {
 function draw() {
     clear();
     drawRoad();
+    fuzzyLogic(trafficLight.color, tlPlacement, car.x);
     car.moveForward();
     car.show();
     trafficLight.update();
@@ -22,5 +28,6 @@ function draw() {
 function mousePressed() {
     moving ? car.stop() : car.start();
     moving ^= 1;
+    //fuzzyLogic(tlColor, tlPlacement, carPlacement);
 }
 
