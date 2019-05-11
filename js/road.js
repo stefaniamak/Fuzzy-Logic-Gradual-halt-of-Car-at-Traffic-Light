@@ -9,7 +9,7 @@ function drawRoad() {
 
 function RoadOutline() {
     fill(0xffffff);
-    rect(0, HEIGHT/3, WIDTH*0.9, HEIGHT/3);
+    rect(0, HEIGHT/3, WIDTH*0.95, HEIGHT/3);
 }
 
 function RoadLines(x, y) {

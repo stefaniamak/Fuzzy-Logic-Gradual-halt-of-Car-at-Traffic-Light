@@ -105,8 +105,8 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     //Efarmozw trimf sto red
     //Step 3   Sugkrinw, krataw thn min timh
 
-    case1Distance = gaussmf(tlPlacement-carPlacement,0.5,0);
-    case1Light = trimf(tlTick,-200,200,200);
+    case1Distance = gaussmf(tlPlacement-carPlacement,tlPlacement/5,0);
+    case1Light = trimf(tlTick,0,200,200);
 
     if (case1Distance > case1Light) {
         case1 = case1Distance;
@@ -119,8 +119,8 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     //Efarmozw trimf sto Green
     //Step 3   Sugkrinw, krataw thn max timh
 
-    case2Distance = gaussmf(tlPlacement-carPlacement,0.5,tlPlacement/2);
-    case2Light = trimf(tlTick,200,300,300);
+    case2Distance = gaussmf(tlPlacement-carPlacement,tlPlacement/5,tlPlacement/2);
+    case2Light = trimf(tlTick,200,250,350);
 
     if (case2Distance > case2Light) {
         case2 = case2Distance;
@@ -134,8 +134,8 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     //Efarmozw trimf sto Orange
     //Step 3   Sugkrinw, krataw thn max timh
 
-    case3Distance = gaussmf(tlPlacement-carPlacement,0.5,tlPlacement);
-    case3Light = trimf(tlTick,250,350,350);
+    case3Distance = gaussmf(tlPlacement-carPlacement,tlPlacement/5,tlPlacement);
+    case3Light = trimf(tlTick,250,300,350);
 
     if (case3Distance > case3Light) {
         case3 = case3Distance;
@@ -147,38 +147,21 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
 // Step 4
     //Pairnw tis 3eis panw times kai tis kanw 1 sxhma
 
-    carSpeedChoice = case1*0 + case2*50/100 //+ case3*100/100
-
+    carSpeedChoice = case1*0 + case2*50/100 + case3;
+    document.getElementById("myText1").value = case1Distance;
+    document.getElementById("myText2").value = case2Distance ;
+    document.getElementById("myText3").value = case3Distance;
+    document.getElementById("myText4").value = case1Light;
+    document.getElementById("myText5").value = case2Light ;
+    document.getElementById("myText6").value = case3Light;
+    
 
 // Step 5
     //Dialegw tropo ermineushs tou sxhmatos
 
     resultOfAggression = carSpeedChoice/3;
+    document.getElementById("myText7").value = resultOfAggression;
     return resultOfAggression;
-
-
-    /*
-    if (tlColor == "Green" || tlDistance == "far") {
-        carSpeedChoice = "Normal Speed";
-    }else if (tlColor == "Red" || tlDistance == "middle") {
-        carSpeedChoice = "Slow Down";
-    }else {
-        carSpeedChoice = "Speed Up";
-    }
-    
-
-    if (carSpeedChoice == "Normal Speed") {
-        car.start()
-    }else if (carSpeedChoice == "Slow Down") {
-        //percentage = (tlPlacement - carPlacement)/100;
-        car.stop();
-    }else {
-        car.fast()
-    }
-    */
-    //car.start()
-
-    
 
 }
 
@@ -187,7 +170,7 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
 // gauss -> CHECK page 195
 
 function gaussmf (x,sig,c) {
-    return Math.exp((-(x - c)^2)/(2 * sig^2))
+    return Math.exp(-(Math.pow((x-c), 2))/(2 * Math.pow(sig, 2)))
 }
 
 function trimf(x,a,b,c) { // page 249 @ https://aetos.it.teithe.gr/~adamidis/IntelSys/fuzzy.pdf

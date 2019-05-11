@@ -26,7 +26,8 @@ class Car {
     }
     */
     moveForward(sP) {
-        this.x += 3*sP;
+        this.x += 30*sP;
+        document.getElementById("myText8").value = this.x;
         if (this.x > WIDTH*0.9) {
             this.x = 0;
         }
