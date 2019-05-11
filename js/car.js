@@ -14,19 +14,19 @@ class Car {
     }
     
     start() {
-        this.speed = carSpeed;
+        this.speed = 3;
     }
 
     stop() {
-        this.speed = 0;
+        this.speed = 0 ;
     }
-
+    /*
     fast() {
         this.speed = 10;
     }
-
-    moveForward() {
-        this.x += this.speed;
+    */
+    moveForward(sP) {
+        this.x += 3*sP;
         if (this.x > WIDTH*0.9) {
             this.x = 0;
         }

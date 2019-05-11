@@ -1,3 +1,7 @@
+const redTick = 200;
+const greenTick = 100;
+const orangeTick = 50;
+
 class TrafficLight {
     /*
       Traffic light has 3 stages: [Green, Orange, Red]
@@ -10,12 +14,13 @@ class TrafficLight {
       The method update() must be called every time during the drawing phase
       always before the show method.
     */
+
     constructor(x, y) {
         this.x = x;
         this.y = y;
         this.tick = 1;
-        this.stage = 0;
-        this.color = "Grey";
+        this.stage = 2;
+        //this.color = "Grey";
     }
 
     show() {
@@ -24,6 +29,7 @@ class TrafficLight {
         const GREEN = '#00ff00';
         const RED = '#ff0000';
         const ORANGE = '#e1891b';
+        
 
         //Border
         fill('#000000'); //black
@@ -40,7 +46,7 @@ class TrafficLight {
         //Green Light
         fill(this.stage == 0 ? GREEN : GREY);
         circle(HEIGHT*0.05, HEIGHT*16.5/100, HEIGHT*2.7/100);
-
+        /*
         if (this.stage == 2) {
             this.color = "Red";
         } else if (this.stage == 1) {
@@ -48,20 +54,19 @@ class TrafficLight {
         }else {
             this.color = "Green";
         }
+        */
     }
 
     update() {
         this.tick++;
 
-        if (this.stage == 0 && this.tick == 200) {
-            this.tick = 1;
+        if (this.tick == redTick) {
+            this.stage = 0;
+        } else if (this.tick == redTick+greenTick) {
             this.stage = 1;
-        } else if (this.stage == 1 && this.tick == 130) {
+        } else if (this.tick == redTick+greenTick+orangeTick) {
             this.tick = 1;
             this.stage = 2;
-        } else if (this.stage == 2 && this.tick == 300) {
-            this.tick = 1;
-            this.stage = 0;
         }
     }
 }
