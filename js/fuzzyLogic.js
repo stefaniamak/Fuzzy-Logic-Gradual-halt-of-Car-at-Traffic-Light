@@ -120,7 +120,7 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     //Step 3   Sugkrinw, krataw thn max timh
 
     case2Distance = gaussmf(tlPlacement-carPlacement,0.5,tlPlacement/2);
-    case2Light = trimf(tlTick,100,300,300);
+    case2Light = trimf(tlTick,200,300,300);
 
     if (case2Distance > case2Light) {
         case2 = case2Distance;
