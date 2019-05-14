@@ -100,13 +100,15 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
 
 //Step 2
 
+    sig = tlPlacement/5.5
+
     //Kanonas 1: Slow Down -> MIN(Distance=Close, Light=Red)
     //Efarmozw gaussmf sto close
     //Efarmozw trimf sto red
     //Step 3   Sugkrinw, krataw thn min timh
 
-    case1Distance = gaussmf(tlPlacement-carPlacement,tlPlacement/5,0);
-    case1Light = trimf(tlTick,0,200,200);
+    case1Distance = gaussmf(tlPlacement-carPlacement,sig,0);
+    case1Light = trimf(tlTick,0,redTick,redTick);
 
     if (case1Distance > case1Light) {
         case1 = case1Distance;
@@ -119,8 +121,8 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     //Efarmozw trimf sto Green
     //Step 3   Sugkrinw, krataw thn max timh
 
-    case2Distance = gaussmf(tlPlacement-carPlacement,tlPlacement/5,tlPlacement/2);
-    case2Light = trimf(tlTick,200,250,350);
+    case2Distance = gaussmf(tlPlacement-carPlacement,sig,tlPlacement/2);
+    case2Light = trimf(tlTick,redTick,redTick+orangeTick,redTick+orangeTick+greenTick);
 
     if (case2Distance > case2Light) {
         case2 = case2Distance;
@@ -129,13 +131,13 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     }
 
 
-    //Kanonas 1: Speed Up -> MAX(Distance=Far, Light=Orange)
+    //Kanonas 3: Speed Up -> MAX(Distance=Far, Light=Orange)
     //Efarmozw gaussmf sto Far
     //Efarmozw trimf sto Orange
     //Step 3   Sugkrinw, krataw thn max timh
 
-    case3Distance = gaussmf(tlPlacement-carPlacement,tlPlacement/5,tlPlacement);
-    case3Light = trimf(tlTick,250,300,350);
+    case3Distance = gaussmf(tlPlacement-carPlacement,sig,tlPlacement);
+    case3Light = trimf(tlTick,redTick+orangeTick,redTick+greenTick,redTick+orangeTick+greenTick);
 
     if (case3Distance > case3Light) {
         case3 = case3Distance;
@@ -148,12 +150,12 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     //Pairnw tis 3eis panw times kai tis kanw 1 sxhma
 
     carSpeedChoice = case1*0 + case2*50/100 + case3;
-    document.getElementById("myText1").value = case1Distance;
-    document.getElementById("myText2").value = case2Distance ;
-    document.getElementById("myText3").value = case3Distance;
-    document.getElementById("myText4").value = case1Light;
-    document.getElementById("myText5").value = case2Light ;
-    document.getElementById("myText6").value = case3Light;
+    document.getElementById("case1Distance").value = case1Distance;
+    document.getElementById("case2Distance").value = case2Distance ;
+    document.getElementById("case3Distance").value = case3Distance;
+    document.getElementById("case1Light").value = case1Light;
+    document.getElementById("case2Light").value = case2Light ;
+    document.getElementById("case3Light").value = case3Light;
     
 
 // Step 5

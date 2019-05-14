@@ -1,14 +1,15 @@
 const HEIGHT = window.innerHeight- window.innerHeight*10/100;
 const WIDTH = window.innerWidth;
 
-const carSpeed = 3;
-const car = new Car(0, HEIGHT/2, carSpeed);
+const carSpeed = 30;
+const car = new Car(0, HEIGHT/2.1, carSpeed);
 let moving = false;
 
-const tlPlacement = WIDTH*85/100;
+const tlPlacement = WIDTH*83/100;
 tlColor = "Green";
 const trafficLight = new TrafficLight(tlPlacement, HEIGHT*0.10);
 
+const percentageOfSpeed = 0;
 
 function setup() {
     createCanvas(WIDTH, HEIGHT);

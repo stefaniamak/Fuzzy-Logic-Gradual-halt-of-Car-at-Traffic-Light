@@ -13,18 +13,30 @@
     <body>
 
         <div class="header">
-            <p>Ex2 Eyfyi systimata</p>
-            <h2>Car and Traffic Light with Fuzzy Logic</h2>
+            <h2>Fuzzy Logic: Gradual halt of Car at Traffic Light</h2>
         </div>
 
-        <!-- <button onclick="carStart()">Start car</button> -->
-        <input type="text" id="myText1" value="Some text...">
-        <input type="text" id="myText2" value="Some text...">
-        <input type="text" id="myText3" value="Some text...">
+        <div>
+            <h2>Rules</h1>
+                <h3>1. If Car is Close to the Traffic Light OR Traffic Light is Red, then Slow Down.</h3>
+                <h3>2. If Car is further than close, but not far to Traffic Light OR Traffic Light is Green, then Keep Middle Speed.</h3>
+                <h3>3. If Car is Far from the Traffic Light OR Traffic Light is Orange, then Speed Up.</h3>
+        </div>
+
+        <div> 
+            <h1></h1>
+            <h5>Rule 1</h5>
+            <h6></h6>
+            <input type="text" id="case1Distance" value="Some text...">
+            <input type="text" id="case1Light" value="Some text...">
+        </div>
         <p></p>
-        <input type="text" id="myText4" value="Some text...">
-        <input type="text" id="myText5" value="Some text...">
-        <input type="text" id="myText6" value="Some text...">
+        <input type="text" id="case2Distance" value="Some text...">
+        <input type="text" id="case3Distance" value="Some text...">
+        <p></p>
+        
+        <input type="text" id="case2Light" value="Some text...">
+        <input type="text" id="case3Light" value="Some text...">
         <p></p>
         <input type="text" id="myText7" value="Some text...">
         <input type="text" id="myText8" value="Some text...">

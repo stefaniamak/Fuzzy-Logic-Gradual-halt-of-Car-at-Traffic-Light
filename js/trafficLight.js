@@ -1,6 +1,6 @@
-const redTick = 200;
-const greenTick = 100;
-const orangeTick = 50;
+const redTick = 300;
+const greenTick = 300;
+const orangeTick = 150;
 
 class TrafficLight {
     /*
