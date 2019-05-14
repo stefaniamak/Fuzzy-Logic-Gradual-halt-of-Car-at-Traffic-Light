@@ -83,19 +83,19 @@ Inputs (non-fuzzy) -> Rules (fuzzy) -> Results/Conbined rules (defuzzidied) -> R
 function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
 //Step 1
     if (carPlacement < tlPlacement/3) {
-        tlDistance = "far";
+        trafficLight.tlDistance = "far";
     }else if (carPlacement > tlPlacement*2/3) {
-        tlDistance = "close";
+        trafficLight.tlDistance = "close";
     }else {
-        tlDistance = "middle";
+        trafficLight.tlDistance = "middle";
     }
 
     if (tlTick < redTick) {
-        tlColor = "Red";
+        trafficLight.tlColor = "Red";
     }else if (tlTick < redTick+greenTick) {
-        tlColor = "Green";
+        trafficLight.tlColor = "Green";
     }else {
-        tlColor = "Orange";
+        trafficLight.tlColor = "Orange";
     }
 
 //Step 2
@@ -162,7 +162,6 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     //Dialegw tropo ermineushs tou sxhmatos
 
     resultOfAggression = carSpeedChoice/3;
-    document.getElementById("myText7").value = resultOfAggression;
     return resultOfAggression;
 
 }

@@ -1,0 +1,28 @@
+/* For HTML files */
+.header {
+    padding: 1px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 20px;
+  }
+
+
+
+/* For js files */
+
+.car {
+    width: 100px
+}
+
+.road {
+    width: fixed;
+    height: 200px;
+    border: 20px solid #c3c3c3;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+}

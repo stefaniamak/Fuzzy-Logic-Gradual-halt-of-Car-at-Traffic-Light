@@ -1,6 +1,6 @@
 const redTick = 300;
 const greenTick = 300;
-const orangeTick = 150;
+const orangeTick = 120;
 
 class TrafficLight {
     /*
@@ -20,6 +20,8 @@ class TrafficLight {
         this.y = y;
         this.tick = 1;
         this.stage = 2;
+        this.tlDistance;
+        this.tlColor;
         //this.color = "Grey";
     }
 
@@ -59,6 +61,7 @@ class TrafficLight {
 
     update() {
         this.tick++;
+        document.getElementById("tlTick").value =  this.tick;
 
         if (this.tick == redTick) {
             this.stage = 0;
@@ -68,6 +71,8 @@ class TrafficLight {
             this.tick = 1;
             this.stage = 2;
         }
+        
+        document.getElementById("colorShow").value = this.tlColor;
     }
 }
 
