@@ -81,34 +81,34 @@ Inputs (non-fuzzy) -> Rules (fuzzy) -> Results/Conbined rules (defuzzidied) -> R
 
 
 function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
-//Step 1
-    if (carPlacement < tlPlacement/3) {
+    //Step 1
+    if (carPlacement < tlPlacement / 3) {
         trafficLight.tlDistance = "far";
-    }else if (carPlacement > tlPlacement*2/3) {
+    } else if (carPlacement > tlPlacement * 2 / 3) {
         trafficLight.tlDistance = "close";
-    }else {
+    } else {
         trafficLight.tlDistance = "middle";
     }
 
     if (tlTick < redTick) {
         trafficLight.tlColor = "Red";
-    }else if (tlTick < redTick+greenTick) {
+    } else if (tlTick < redTick + greenTick) {
         trafficLight.tlColor = "Green";
-    }else {
+    } else {
         trafficLight.tlColor = "Orange";
     }
 
-//Step 2
+    //Step 2
 
-    sig = tlPlacement/5.5
+    sig = tlPlacement / 5.5
 
     //Kanonas 1: Slow Down -> MIN(Distance=Close, Light=Red)
     //Efarmozw gaussmf sto close
     //Efarmozw trimf sto red
     //Step 3   Sugkrinw, krataw thn min timh
 
-    case1Distance = gaussmf(tlPlacement-carPlacement,sig,0);
-    case1Light = trimf(tlTick,0,redTick,redTick);
+    case1Distance = gaussmf(tlPlacement - carPlacement, sig, 0);
+    case1Light = trimf(tlTick, 0, redTick, redTick);
 
     if (case1Distance > case1Light) {
         case1 = case1Distance;
@@ -121,8 +121,8 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     //Efarmozw trimf sto Green
     //Step 3   Sugkrinw, krataw thn max timh
 
-    case2Distance = gaussmf(tlPlacement-carPlacement,sig,tlPlacement/2);
-    case2Light = trimf(tlTick,redTick,redTick+orangeTick,redTick+orangeTick+greenTick);
+    case2Distance = gaussmf(tlPlacement - carPlacement, sig, tlPlacement / 2);
+    case2Light = trimf(tlTick, redTick, redTick + orangeTick, redTick + orangeTick + greenTick);
 
     if (case2Distance > case2Light) {
         case2 = case2Distance;
@@ -136,8 +136,8 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     //Efarmozw trimf sto Orange
     //Step 3   Sugkrinw, krataw thn max timh
 
-    case3Distance = gaussmf(tlPlacement-carPlacement,sig,tlPlacement);
-    case3Light = trimf(tlTick,redTick+orangeTick,redTick+greenTick,redTick+orangeTick+greenTick);
+    case3Distance = gaussmf(tlPlacement - carPlacement, sig, tlPlacement);
+    case3Light = trimf(tlTick, redTick + orangeTick, redTick + greenTick, redTick + orangeTick + greenTick);
 
     if (case3Distance > case3Light) {
         case3 = case3Distance;
@@ -146,22 +146,22 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
     }
 
 
-// Step 4
+    // Step 4
     //Pairnw tis 3eis panw times kai tis kanw 1 sxhma
 
-    carSpeedChoice = case1*0 + case2*50/100 + case3;
+    carSpeedChoice = case1 * 0 + case2 * 50 / 100 + case3;
     document.getElementById("case1Distance").value = case1Distance;
-    document.getElementById("case2Distance").value = case2Distance ;
+    document.getElementById("case2Distance").value = case2Distance;
     document.getElementById("case3Distance").value = case3Distance;
     document.getElementById("case1Light").value = case1Light;
-    document.getElementById("case2Light").value = case2Light ;
+    document.getElementById("case2Light").value = case2Light;
     document.getElementById("case3Light").value = case3Light;
-    
 
-// Step 5
+
+    // Step 5
     //Dialegw tropo ermineushs tou sxhmatos
 
-    resultOfAggression = carSpeedChoice/3;
+    resultOfAggression = carSpeedChoice / 3;
     return resultOfAggression;
 
 }
@@ -170,17 +170,17 @@ function fuzzyLogic(tlTick, tlPlacement, carPlacement) {
 
 // gauss -> CHECK page 195
 
-function gaussmf (x,sig,c) {
-    return Math.exp(-(Math.pow((x-c), 2))/(2 * Math.pow(sig, 2)))
+function gaussmf(x, sig, c) {
+    return Math.exp(-(Math.pow((x - c), 2)) / (2 * Math.pow(sig, 2)))
 }
 
-function trimf(x,a,b,c) { // page 249 @ https://aetos.it.teithe.gr/~adamidis/IntelSys/fuzzy.pdf
+function trimf(x, a, b, c) { // page 249 @ https://aetos.it.teithe.gr/~adamidis/IntelSys/fuzzy.pdf
     if (x <= a || c <= x) {
         return 0
     } else if (a <= x && x <= b) {
-        return (x-a)/(b-a)
+        return (x - a) / (b - a)
     } else if (b <= x && x <= c) {
-        return (c-x)/(c-b)
+        return (c - x) / (c - b)
     }
 }
 
