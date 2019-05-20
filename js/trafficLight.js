@@ -12,7 +12,7 @@ always before the show method.
 */
 const redTick = 300;
 const greenTick = 300;
-const orangeTick = 120;
+const orangeTick = 150;
 
 class TrafficLight {
     constructor(x, y) {

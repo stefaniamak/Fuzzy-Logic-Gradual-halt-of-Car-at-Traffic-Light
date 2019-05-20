@@ -157,6 +157,7 @@ img { max-width: 100%; }
 .white-bg {
   background: #ffffff;
   padding: 120px 0;
+  padding-bottom: 0px;
   display: block;
 }
 /*-------- content --------*/
