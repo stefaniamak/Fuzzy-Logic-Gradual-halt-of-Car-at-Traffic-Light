@@ -7,7 +7,6 @@
     <link href="css/style.css" rel="stylesheet">
     <!--     JS     -->
     <script src="./js/p5.min.js"></script>
-    <script src="./js/environment.js"></script>
     <script src="./js/road.js"></script>
     <script src="./js/car.js"></script>
     <script src="./js/trafficLight.js"></script>
@@ -16,7 +15,9 @@
 </head>
 
 <body>
-
+    <audio id="audio" controls style="display:none">
+        <source src="./honk honk.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+    </audio>
     <div class="header">
         <h2>Fuzzy Logic: Gradual halt of Car at Traffic Light</h2>
     </div>

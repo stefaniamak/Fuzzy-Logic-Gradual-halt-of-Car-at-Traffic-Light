@@ -1,3 +1,5 @@
+//Έκπληξη
+document.addEventListener("keypress", (e) => e.charCode == 104 ? document.getElementById("audio").play() : "");
 
 // Παράθυρο
 const HEIGHT = window.innerHeight - window.innerHeight * 50 / 100;
