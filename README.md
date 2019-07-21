@@ -1,4 +1,4 @@
-# Fuzzy Logic Gradual halt of Car at Traffic Light
+# Fuzzy Logic: Gradual halt of Car at Traffic Light
 University project on Ιntelligent Systems, specifically on Fuzzy Logic.
 
 The finished project:
